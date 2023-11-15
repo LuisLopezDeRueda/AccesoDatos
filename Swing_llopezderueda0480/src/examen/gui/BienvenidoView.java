@@ -7,6 +7,8 @@ import javax.swing.JTextField;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import java.awt.Color;
@@ -23,7 +25,7 @@ public class BienvenidoView extends View {
 	private JRadioButton rdbtnIdentificacion;
 	private JLabel lblError;
 	private JButton btnEntrar;
-	
+
 	public BienvenidoView(AppController appView) {
 		super(appView);
 		setLayout(null);
@@ -99,6 +101,25 @@ public class BienvenidoView extends View {
 			}
 		});
 
+		textField.addKeyListener(new KeyListener() {
+
+			@Override
+			 public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+		            e.consume();  // if it's not a number, ignore the event
+		        }
+		     }
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+			}
+		});
 		rdbtnAnonimo.addActionListener(actionListener);
 		rdbtnIdentificacion.addActionListener(actionListener);
 
