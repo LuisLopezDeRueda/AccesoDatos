@@ -63,8 +63,13 @@ public class TableModel extends AbstractTableModel {
 		}
 		if (columnIndex == 2) {
 			return coche.getFechaUltimaRevision().format(formato);
-		} else
-			return coche.getAntiguedad();
+		} else {
+			if(coche.getAntiguedad() == 1) {
+				return coche.getAntiguedad()+ " año";
+			}else
+				return coche.getAntiguedad()+ " años";
+		}
+			
 
 	}
 
