@@ -19,7 +19,6 @@ public class AppController {
 	private ExamenService service;
 	private List<Coche> listaCoches;
 
-	
 	/**
 	 * Launch the application.
 	 */
@@ -91,19 +90,24 @@ public class AppController {
 	public void consutlarCoche(String marca) {
 		listaCoches = service.consultarCoches(marca);
 	}
+
 	public List<Coche> getListaCoches() {
 		return listaCoches;
 	}
+
 	public Integer sumar(Integer numero) {
-		
-		return numero+1;
+
+		return numero + 1;
 	}
+
 	public Integer restar(Integer numero) {
-		if(numero == 1) {
+		if (numero == 1) {
 			return 1;
-		}else
-			return numero-1;
-	}public void insertar(String marca,String modelo, Integer años) {
+		} else
+			return numero - 1;
+	}
+
+	public void insertar(String marca, String modelo, Integer años) {
 		service.crearCoche(marca, modelo, años);
 	}
 }

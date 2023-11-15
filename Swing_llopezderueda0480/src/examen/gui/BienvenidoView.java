@@ -68,6 +68,7 @@ public class BienvenidoView extends View {
 				if (e.getSource() == rdbtnAnonimo) {
 					rdbtnAnonimo.setSelected(true);
 					rdbtnIdentificacion.setSelected(false);
+					textField.setEnabled(false);
 				} else if (e.getSource() == rdbtnIdentificacion) {
 					rdbtnAnonimo.setSelected(false);
 					rdbtnIdentificacion.setSelected(true);
@@ -104,12 +105,12 @@ public class BienvenidoView extends View {
 		textField.addKeyListener(new KeyListener() {
 
 			@Override
-			 public void keyTyped(KeyEvent e) {
-		        char c = e.getKeyChar();
-		        if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
-		            e.consume();  // if it's not a number, ignore the event
-		        }
-		     }
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+					e.consume();
+				}
+			}
 
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -117,7 +118,7 @@ public class BienvenidoView extends View {
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				
+
 			}
 		});
 		rdbtnAnonimo.addActionListener(actionListener);
